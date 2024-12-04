@@ -44,7 +44,7 @@ jobs:
       - name: Build Media3 Exoplayer FFmpeg
         run: |
           cd "$GITHUB_WORKSPACE"
-          git clone https://github.com/yaoxieyoulei/media -b av3a_1.4.1
+          git clone https://github.com/WoKee/media -b av3a_1.4.1.1
           cd media
           FFMPEG_MODULE_PATH="$(pwd)/libraries/decoder_ffmpeg/src/main"
           NDK_PATH="$GITHUB_WORKSPACE"/android-ndk-${{ github.event.inputs.ANDROID_NDK }}

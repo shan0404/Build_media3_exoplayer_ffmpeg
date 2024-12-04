@@ -69,4 +69,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Media3 Exoplayer FFmpeg
-          path: media/libraries/decoder_ffmpeg/ffmpeg/android-libs/*
+          path: media/libraries/decoder_ffmpeg/ffmpeg-avs3/android-libs/*

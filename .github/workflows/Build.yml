@@ -18,7 +18,7 @@ on:
       FFMPEG_RELEASE_BRANCH:
         description: "FFMPEG_RELEASE_BRANCH"
         required: true
-        default: '7.0'
+        default: 'main'
 
 jobs:
   Build-Media3-Exoplayer-FFmpeg:
@@ -52,9 +52,12 @@ jobs:
           ANDROID_ABI=${{ github.event.inputs.ANDROID_ABI }}
           ENABLED_DECODERS=(${{ github.event.inputs.ENABLED_DECODERS }})
           cd libraries/decoder_ffmpeg && \
-          git clone git://source.ffmpeg.org/ffmpeg && \
+          git clone https://github.com/WoKee/ffmpeg-av3a.git && \
+          chmod +x ./ffmpeg-av3a -R && \
+          mv ffmpeg-av3a ffmpeg && \
+          chmod +x ./ffmpeg -R && \
           cd ffmpeg && \
-          git checkout release/${{ github.event.inputs.FFMPEG_RELEASE_BRANCH }} && \
+          git checkout main && \
           FFMPEG_PATH="$(pwd)"
           cd "${FFMPEG_MODULE_PATH}/jni" && \
           ln -s "$FFMPEG_PATH" ffmpeg
